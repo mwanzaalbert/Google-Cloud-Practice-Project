@@ -1,5 +1,5 @@
 # Google-Cloud-Practice-Project
 
 
-Completed labs can be found in the file the Google Cloud Practice Project Results.pdf
+23 completed lab have been compiled and can be found in the file the Google Cloud Practice Project Results.pdf
 
