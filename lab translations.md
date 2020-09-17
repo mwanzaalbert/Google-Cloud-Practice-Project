@@ -3,6 +3,7 @@
 
 https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googlepluralsight.qwiklabs.com/lti_sessions/libraries/gcp-training-content/content/CBL007-CreatingVirtualMachines&originUrl=https://app.pluralsight.com/library/courses/essential-google-cloud-infrastructure-foundation
 
+
 ##Objectives
 
 
@@ -24,9 +25,9 @@ When prompted for authorization, click to authorize.
 The output should contain the following (do not copy; this is example output):
 
 
-        -Created [https://www.googleapis.com/compute/beta/projects/qwiklabs-gcp-00-046ec18c8db6/zones/us-central1-c/instances/utility-vm].
-        -NAME        ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP  STATUS
-        -utility-vm  us-central1-c  n1-standard-1               10.128.0.2               RUNNING
+        Created [https://www.googleapis.com/compute/beta/projects/qwiklabs-gcp-00-046ec18c8db6/zones/us-central1-c/instances/utility-vm].
+        NAME        ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP  STATUS
+        utility-vm  us-central1-c  n1-standard-1               10.128.0.2               RUNNING
 
 
 ##Task 2: Create a Windows virtual machine
