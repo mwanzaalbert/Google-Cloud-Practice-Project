@@ -75,15 +75,15 @@ SSH to your custom VM
 
 Then, run the following commands(independly):
 
-        1.free   - to see information about unused and used memory and swap space on your custom VM
-        2.sudo de -t 17   - to see details about the RAM installed on your VM,
-        3.nproc  - to verify the number of processors
-        4.lscpu  - to see details about the CPUs installed on your VM
-        5.exitTo - exit the SSH terminal 
+        1.free           (to see information about unused and used memory and swap space on your custom VM)
+        2.sudo de -t 17  (to see details about the RAM installed on your VM)
+        3.nproc          (to verify the number of processors)
+        4.lscpu          (to see details about the CPUs installed on your VM)
+        5.exitTo         (exit the SSH terminal) 
 
 
 
-#2.	Working with Virtual Machines
+# 2.	Working with Virtual Machines
 
 https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googlepluralsight.qwiklabs.com/lti_sessions/libraries/gcp-training-content/content/CBL016-WorkingVirtualMachines&originUrl=https://app.pluralsight.com/library/courses/essential-google-cloud-infrastructure-foundation 
 
@@ -92,46 +92,47 @@ https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googleplurals
 
 In this lab, you learn how to perform the following tasks:
 
-•	Customize an application server
-•	Install and configure necessary software
-•	Configure network access
-•	Schedule regular backups
-•	Set up maintenance scripts using metadata for graceful startup and shutdown of the server.
+       •Customize an application server
+       •Install and configure necessary software
+       •Configure network access
+       •Schedule regular backups
+       •Set up maintenance scripts using metadata for graceful startup and shutdown of the server.
 
 
-##Task 1: Create the VM
+## Task 1: Create the VM
 
 Run the following command:
 
-gcloud beta compute --project=qwiklabs-gcp-04-98a940638d63 instances create mc-server --zone=us-central1-a --machine-type=e2-medium --subnet=default --address=34.66.142.205 --network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=249083116004-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/trace.append,https://www.googleapis.com/auth/devstorage.read_write --tags=minecraft-server --image=debian-9-stretch-v20200910 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=mc-server --create-disk=mode=rw,size=50,type=projects/qwiklabs-gcp-04-98a940638d63/zones/us-central1-a/diskTypes/pd-standard,name=minecraft-disk,device-name=minecraft-disk --reservation-affinity=any
+       gcloud beta compute --project=qwiklabs-gcp-04-98a940638d63 instances create mc-server --zone=us-central1-a --machine-type=e2-medium --subnet=default --address=34.66.142.205 --network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=249083116004-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/trace.append,https://www.googleapis.com/auth/devstorage.read_write --tags=minecraft-server --image=debian-9-stretch-v20200910 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=mc-server --create-disk=mode=rw,size=50,type=projects/qwiklabs-gcp-04-98a940638d63/zones/us-central1-a/diskTypes/pd-standard,name=minecraft-disk,device-name=minecraft-disk --reservation-affinity=any
 
 The output should contain the following (do not copy; this is example output):
 
 
-        -Created [https://www.googleapis.com/compute/beta/projects/qwiklabs-gcp-04-98a940638d63/zones/us-central1-a/instances/mc-server].
-        -NAME       ZONE           MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP   STATUS
-        -mc-server  us-central1-a  e2-medium                  10.128.0.2   34.66.142.205 RUNNING
+        Created [https://www.googleapis.com/compute/beta/projects/qwiklabs-gcp-04-98a940638d63/zones/us-central1-a/instances/mc-server].
+        NAME       ZONE           MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP   STATUS
+        mc-server  us-central1-a  e2-medium                  10.128.0.2   34.66.142.205 RUNNING
 
-    -copy the external IP somewhere it will be used later
+    (copy the external IP somewhere it will be used later)
 
 
-##Task 2: Prepare the data disk
+# #Task 2: Prepare the data disk
 
 Create a directory and format and mount the disk
 
 The disk is attached to the instance, but it is not yet mounted or formatted.
-    1.	To SSH mc-server, run the following command:
-    gcloud compute ssh mc-server
+    
+  1.To SSH mc-server, run the following command:
+       gcloud compute ssh mc-server
 
 if the following message appears, 
-Did you mean zone [europe-west1-b] for instance: [mc-server] (Y/n)?  n
+       Did you mean zone [europe-west1-b] for instance: [mc-server] (Y/n)?  n
 select n and wait to be directed to the mc-server vm path
-    2.	To create a directory that serves as the mount point for the data disk, run the following command:
-    sudo mkdir -p /home/minecraft
-    3.	To format the disk, run the following command:
-    sudo mkfs.ext4 -F -E lazy_itable_init=0,\ lazy_journal_init=0,discard \ /dev/disk/by-id/google-minecraft-disk
-    4.	To mount the disk, run the following command:
-sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
+  2.To create a directory that serves as the mount point for the data disk, run the following command:
+       sudo mkdir -p /home/minecraft
+  3.To format the disk, run the following command:
+       sudo mkfs.ext4 -F -E lazy_itable_init=0,\ lazy_journal_init=0,discard \ /dev/disk/by-id/google-minecraft-disk
+  4.To mount the disk, run the following command:
+       sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
 
 Task 3: Install and run the application- 
 
