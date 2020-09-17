@@ -115,7 +115,7 @@ The output should contain the following (do not copy; this is example output):
     (copy the external IP somewhere it will be used later)
 
 
-# #Task 2: Prepare the data disk
+## Task 2: Prepare the data disk
 
 Create a directory and format and mount the disk
 
@@ -139,7 +139,7 @@ select n and wait to be directed to the mc-server vm path
 4.To mount the disk, run the following command:
        sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
 
-Task 3: Install and run the application- 
+## Task 3: Install and run the application- 
 
 Install the Java Runtime Environment (JRE) and the Minecraft server
 
@@ -186,7 +186,7 @@ Detach from the screen and close your SSH session
 
 Congratulations! You set up and customized a VM and installed and configured application software—a Minecraft server
 
-##Task 4: Allow client traffic
+## Task 4: Allow client traffic
 
 Up to this point, the server has an external static IP address, but it cannot receive traffic because there is no firewall rule in place. Minecraft server uses TCP port 25565 by default. So you need to configure a firewall rule to allow these connections.
 
@@ -206,7 +206,7 @@ Verify server availability
     1.	Locate and copy the External IP address for the mc-server VM from the cloud shell
     2.	Use the following website to test your Minecraft server: https://mcsrvstat.us/
 
-##Task 5: Schedule regular backups
+## Task 5: Schedule regular backups
 
 Backing up your application data is a common activity. In this case, you configure the system to back up Minecraft world data to Cloud Storage.
 
@@ -250,7 +250,7 @@ Test the backup script and schedule a cron job
 
 This creates about 300 backups a month in Cloud Storage, so you will want to regularly delete them to avoid charges. Cloud Storage offers the Object Lifecycle Management feature to set a Time to Live (TTL) for objects, archive older versions of objects, or "downgrade" storage classes of objects to help manage costs.
 
-##Task 6: Server maintenance
+## Task 6: Server maintenance
 
 To perform server maintenance, you need to shut down the server.
 Connect via SSH to the server, stop it and shut down the VM
