@@ -15,3 +15,4 @@ https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googleplurals
 https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googlepluralsight.qwiklabs.com/lti_sessions/libraries/gcp-training-content/content/CBL016-WorkingVirtualMachines&originUrl=https://app.pluralsight.com/library/courses/essential-google-cloud-infrastructure-foundation
 
  
+The links provided above are the original qwiklabs projects. They can be used for comparison with the lab translations.md file.
