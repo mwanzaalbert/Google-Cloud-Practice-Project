@@ -1,8 +1,8 @@
 # Google-Cloud-Practice-Project
 
 
-23 completed lab have been compiled and can be found in the file the Google Cloud Practice Project Results.pdf
-2 labs have been fully translated to 100% command line insturctions. They Include:
+23 completed lab have been compiled and can be found in the file the mwanzaalbert/Google-Cloud-Practice-Project/ Google Cloud Practice Project Results.pdf
+2 labs have been fully translated to 100% command line insturctions. They can be found in the mwanzaalbert/Google-Cloud-Practice-Project/Lab Translation.pdf file. They Include:
 
 
   -1.	Creating Virtual Machines
