@@ -290,7 +290,7 @@ Connect via SSH to the server, stop it and shut down the VM
 
 1. In the mc-server SSH terminal, run the following command:
         sudo screen -r -X stuff '/stop\n'
-2. Enter cd in the shell to return to the mc-server path
+2. Enter cd in the shell to return to the mc-server SSH terminal
    
    Output will appear as follows:
         
