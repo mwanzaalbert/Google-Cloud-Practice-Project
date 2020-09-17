@@ -88,7 +88,7 @@ Then, run the following commands(independly):
 https://app.pluralsight.com/id/lti/qwiklabs?destinationUrl=https://googlepluralsight.qwiklabs.com/lti_sessions/libraries/gcp-training-content/content/CBL016-WorkingVirtualMachines&originUrl=https://app.pluralsight.com/library/courses/essential-google-cloud-infrastructure-foundation 
 
 
-##Objectives
+## Objectives
 
 In this lab, you learn how to perform the following tasks:
 
@@ -120,18 +120,23 @@ The output should contain the following (do not copy; this is example output):
 Create a directory and format and mount the disk
 
 The disk is attached to the instance, but it is not yet mounted or formatted.
-    
-  1.To SSH mc-server, run the following command:
-       gcloud compute ssh mc-server
 
+1.To SSH mc-server, run the following command:
+
+       gcloud compute ssh mc-server
 if the following message appears, 
+       
        Did you mean zone [europe-west1-b] for instance: [mc-server] (Y/n)?  n
 select n and wait to be directed to the mc-server vm path
-  2.To create a directory that serves as the mount point for the data disk, run the following command:
+
+2.To create a directory that serves as the mount point for the data disk, run the following command:
+
        sudo mkdir -p /home/minecraft
-  3.To format the disk, run the following command:
-       sudo mkfs.ext4 -F -E lazy_itable_init=0,\ lazy_journal_init=0,discard \ /dev/disk/by-id/google-minecraft-disk
-  4.To mount the disk, run the following command:
+3.To format the disk, run the following command:
+     
+     sudo mkfs.ext4 -F -E lazy_itable_init=0,\ lazy_journal_init=0,discard \ /dev/disk/by-id/google-minecraft-disk
+
+4.To mount the disk, run the following command:
        sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
 
 Task 3: Install and run the application- 
